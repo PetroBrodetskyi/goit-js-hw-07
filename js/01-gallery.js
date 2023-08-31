@@ -19,9 +19,9 @@ const galleryElem = galleryItems
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryElem)
 
-galleryContainer.addEventListener('click', onImgClick)
+galleryContainer.addEventListener('click', imgClick)
 
-function onImgClick(evt) {
+function imgClick(evt) {
     evt.preventDefault();
 
     if (evt.target.nodeName !== 'IMG') {
@@ -43,7 +43,7 @@ function onImgClick(evt) {
             modal.close();
         }
     }
-}
+};
 
 
 
