@@ -15,7 +15,7 @@ const galleryElem = galleryItems
             />
         </a>
     </li>`)
-    .join('');
+.join('');
 
 galleryContainer.insertAdjacentHTML('beforeend', galleryElem)
 
@@ -29,20 +29,16 @@ function imgClick(evt) {
     }
 
     const modal = basicLightbox.create(
-        `<img src="${evt.target.dataset.source}" width="800" height="600">`,
-
-        {   onShow: () => window.addEventListener('keydown', onEscKeyPress),
-            onClose: () => window.removeEventListener('keydown', onEscKeyPress),
-        }
+        `<img src="${evt.target.dataset.source}" width="800" height="600">`
     );
     
     modal.show();
 
-    function onEscKeyPress(evt) {   
-        if (evt.code === "Escape") {
+    window.addEventListener('keydown', (keyEvent) => {
+        if (keyEvent.code === 'Escape') {
             modal.close();
         }
-    }
+    });
 };
 
 
