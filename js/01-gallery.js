@@ -34,9 +34,14 @@ function imgClick(evt) {
     
     modal.show();
 
-    window.addEventListener('keydown', (keyEvent) => {
+    function closeModal() {
+        modal.close();
+        document.removeEventListener('keydown', closeModal);
+    }
+
+    document.addEventListener('keydown', (keyEvent) => {
         if (keyEvent.code === 'Escape') {
-            modal.close();
+            closeModal();
         }
     });
 };
